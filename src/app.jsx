@@ -58,7 +58,7 @@ class App extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12">
-                        <h1 className="text-center"><a href="/" style={{color: '#333', textDecoration: 'none'}}>The <em>UNOFICIAL</em> Ben Swann Video Archive</a></h1>
+                        <h1 className="text-center"><a href="/" style={{color: '#333', textDecoration: 'none'}}>The <em>UNOFFICIAL</em> Ben Swann Video Archive</a></h1>
                         <h4 className="text-muted text-center">This site is in no way affiliated with Ben Swann or CBS 46.</h4>
                     </div>
                 </div>
