@@ -25,7 +25,7 @@ const app = express()
         const html = indexHTML
             .replace(/{{title}}/g, 'Ben Swann Video Archive')
             .replace(/{{url}}/, `${req.protocol}://${req.get('host')}`)
-            .replace(/{{description}}/, 'This is an UNOFICIAL Ben Swann Video Archive.')
+            .replace(/{{description}}/, 'This is an UNOFFICIAL Ben Swann Video Archive.')
             .replace(/{{image}}/, `${req.protocol}://${req.headers.host}/${metaImage}`);
         res.send(html);
     })
