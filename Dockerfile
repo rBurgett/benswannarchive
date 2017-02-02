@@ -1,5 +1,7 @@
 FROM node:6.7
 
+ENV PORT=3300
+
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -13,6 +15,6 @@ COPY . /usr/src/app
 RUN npm run build
 
 # EXPOSE $PORT
-EXPOSE 3330
+EXPOSE 3300
 
 CMD [ "npm", "start" ]
