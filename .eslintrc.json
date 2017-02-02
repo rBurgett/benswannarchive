@@ -45,7 +45,7 @@
         "react/jsx-boolean-value": [2, "always"],
         "react/jsx-equals-spacing": [1, "never"],
         "react/jsx-key": 2,
-        "react/jsx-space-before-closing": [1, "always"]
+        "react/prop-types": [1]
     },
     "env": {
         "browser": true,
