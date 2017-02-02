@@ -55,7 +55,7 @@ class App extends React.Component {
         const { id } = this.props.params;
 
         return (
-            <div className="container">
+            <div className="container" style={{paddingBottom: 30}}>
                 <div className="row">
                     <div className="col-sm-12">
                         <h1 className="text-center"><a href="/" style={{color: '#333', textDecoration: 'none'}}>The <em>UNOFFICIAL</em> Ben Swann Video Archive</a></h1>
@@ -63,6 +63,11 @@ class App extends React.Component {
                     </div>
                 </div>
                 { React.cloneElement(children, { searchTerms, videos, inputChanged, id }) }
+                <div className="github-link">
+                    <a href="https://github.com/rBurgett/benswannarchive" title="Find this project on GitHub.">
+                        <img src="/images/github_logo.png"></img>
+                    </a>
+                </div>
             </div>
         );
     }

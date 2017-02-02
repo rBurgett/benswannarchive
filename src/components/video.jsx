@@ -10,7 +10,7 @@ const VideoComponent = ({ id, videos }) => {
     const mp4Path = window.s3BucketAddress + fileName.replace(/\.flv$/, '.mp4');
 
     return (
-        <div style={{marginBottom: 20}}>
+        <div style={{marginBottom: 10}}>
             <div className="row">
                 <div className="col-sm-12" style={{marginBottom: 20}}>
                     <h4 className="text-center">{video.title}</h4>
