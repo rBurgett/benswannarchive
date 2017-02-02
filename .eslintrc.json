@@ -27,7 +27,7 @@
         "no-shadow": 1,
         "strict": 1,
         "comma-dangle": 1,
-        "eol-last": 1,
+        "eol-last": 0,
         "func-call-spacing": [1, "never"],
         "func-style": [1, "expression", { "allowArrowFunctions": true }],
         "jsx-quotes": [1, "prefer-double"],
