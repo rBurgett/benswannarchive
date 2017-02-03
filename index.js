@@ -46,11 +46,11 @@ const app = express()
     })
     .get('/video/:id', (req, res) => {
         let video = videos.find(v => v.id === req.params.id);
-        video = video ? video : { snippet: {} };
+        video = video ? video : {};
         const html = indexHTML
-            .replace(/{{title}}/g, `${entities.encode(video.snippet.title || '')} - Ben Swann Video Archive`)
+            .replace(/{{title}}/g, `${entities.encode(video.title || '')} - Ben Swann Video Archive`)
             .replace(/{{url}}/, `${req.protocol}://${req.get('host')}`)
-            .replace(/{{description}}/, entities.encode(video.snippet.description || ''))
+            .replace(/{{description}}/, entities.encode(video.description || ''))
             .replace(/{{image}}/, `${req.protocol}://${req.headers.host}/${metaImage}`);
         res.send(html);
     })
