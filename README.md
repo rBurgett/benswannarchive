@@ -31,5 +31,5 @@ $ docker build -t benswannarchive .
 ```
 To run the image on port 3300, enter:
 ```
-docker run --rm -ti -e "PORT=3300" -p 3300:3300 benswannarchive
+$ docker run --rm -ti -e "PORT=3300" -p 3300:3300 benswannarchive
 ```
