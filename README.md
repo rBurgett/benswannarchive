@@ -33,3 +33,6 @@ To run the image on port 3300, enter:
 ```
 $ docker run --rm -ti -e "PORT=3300" -p 3300:3300 benswannarchive
 ```
+
+## Videos API
+You can access the minified JSON data of the videos with a `GET` request to `/api/videos`.
