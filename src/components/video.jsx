@@ -17,8 +17,10 @@ const VideoComponent = ({ id, videos }) => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-sm-12">
-                    <video className="center-block" src={mp4Path} controls={true} ></video>
+                <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+                    <div className="embed-responsive embed-responsive-4by3">
+                        <video className="embed-responsive-item" src={mp4Path} controls={true} ></video>
+                    </div>
                 </div>
             </div>
             <div className="row">
