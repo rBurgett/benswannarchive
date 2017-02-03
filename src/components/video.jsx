@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 class VideoComponent extends React.Component {
 
@@ -27,7 +28,14 @@ class VideoComponent extends React.Component {
                     </div>
                 </div>
                 <div className="row">
-                    <p className="text-center">{video.description}</p>
+                    <div className="col-sm-12">
+                        <p className="text-center">{video.description}</p>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-12">
+                        <p className="text-center text-muted">Published on {moment(video.publishedAt).format('MMMM D, YYYY')}.</p>
+                    </div>
                 </div>
                 <div className="row">
                     <div className="col-sm-12">
