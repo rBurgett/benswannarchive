@@ -51,7 +51,7 @@ const app = express()
             return;
         }
         const html = indexHTML
-            .replace(/{{title}}/g, `${entities.encode(video.title || '')} - Ben Swann Video Archive`)
+            .replace(/{{title}}/g, `${entities.encode(video.title || '')} - Unofficial Ben Swann Video Archive`)
             .replace(/{{url}}/, `https://${req.get('host')}/video/${video.id}`)
             .replace(/{{description}}/, entities.encode(video.description || ''))
             .replace(/{{image}}/, `https://${req.headers.host}/${metaImage}`);
