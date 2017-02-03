@@ -5,8 +5,6 @@ import App from './app.jsx';
 import Home from './components/home.jsx';
 import Video from './components/video.jsx';
 
-window.s3BucketAddress = 'https://s3.amazonaws.com/net.benswannarchive.videos/';
-
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>

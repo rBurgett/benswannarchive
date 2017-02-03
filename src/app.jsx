@@ -19,19 +19,7 @@ class App extends React.Component {
                 if(err) {
                     console.error(err);
                 } else {
-                    const videos = JSON.parse(text)
-                        .map(v => ({
-                            id: v.id,
-                            fileName: v.fileName,
-                            publishedAt: v.snippet.publishedAt,
-                            title: v.snippet.title,
-                            description: v.snippet.description
-                        }))
-                        .sort((a, b) => {
-                            const dateA = a.publishedAt;
-                            const dateB = b.publishedAt;
-                            return dateA === dateB ? 0 : dateA > dateB ? -1 : 1;
-                        });
+                    const videos = JSON.parse(text);
                     this.setState({
                         ...this.state,
                         videos

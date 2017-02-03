@@ -12,9 +12,6 @@ class VideoComponent extends React.Component {
 
         video = video ? video : {};
 
-        const fileName = video.fileName ? video.fileName : '';
-        const mp4Path = window.s3BucketAddress + fileName.replace(/\.flv$/, '.mp4');
-
         return (
             <div style={{marginBottom: 10}}>
                 <div className="row">
@@ -25,7 +22,7 @@ class VideoComponent extends React.Component {
                 <div className="row">
                     <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                         <div className="embed-responsive embed-responsive-4by3">
-                            <video className="embed-responsive-item" src={mp4Path} controls={true} ></video>
+                            <video className="embed-responsive-item" src={video.mp4FilePath} controls={true} ></video>
                         </div>
                     </div>
                 </div>
@@ -35,14 +32,14 @@ class VideoComponent extends React.Component {
                 <div className="row">
                     <div className="col-sm-12">
                         <p className="text-center">
-                            <a href={window.s3BucketAddress + fileName}><span className="glyphicon glyphicon-download"></span> Download hi-res .flv</a>
+                            <a href={video.flvFilePath}><span className="glyphicon glyphicon-download"></span> Download hi-res .flv</a>
                         </p>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-sm-12">
                         <p className="text-center">
-                            <a href={mp4Path}><span className="glyphicon glyphicon-download"></span> Download low-res .mp4</a>
+                            <a href={video.mp4FilePath}><span className="glyphicon glyphicon-download"></span> Download low-res .mp4</a>
                         </p>
                     </div>
                 </div>

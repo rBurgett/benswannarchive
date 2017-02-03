@@ -1,14 +1,30 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const Entities = require('html-entities').XmlEntities;
 
 const entities = new Entities();
 
+const s3BucketAddress = 'https://s3.amazonaws.com/net.benswannarchive.videos/';
+
 const rawVideos = fs.readFileSync(path.join('data', 'videos.json'), 'utf8');
-const videos = JSON.parse(rawVideos);
+const videos = JSON.parse(rawVideos)
+    .map(v => ({
+        id: v.id,
+        flvFilePath: s3BucketAddress + v.fileName,
+        mp4FilePath: s3BucketAddress + v.fileName.replace(/\.flv$/, '.mp4'),
+        publishedAt: v.snippet.publishedAt,
+        title: v.snippet.title,
+        description: v.snippet.description
+    }))
+    .sort((a, b) => {
+        const dateA = a.publishedAt;
+        const dateB = b.publishedAt;
+        return dateA === dateB ? 0 : dateA > dateB ? -1 : 1;
+    });
 
 const videosToSend = JSON.stringify(videos);
 
@@ -18,6 +34,7 @@ const metaImage = 'images/ben_swann.jpg';
 const app = express()
     .use(bodyParser.urlencoded({ extended: false }))
     .use(bodyParser.json())
+    .use(cors())
     .use(favicon('./public/favicon.ico'))
     .use(express.static('./public'))
     .use(express.static('./dist'))
@@ -40,7 +57,7 @@ const app = express()
         res.send(html);
     })
     .get('/api/videos', (req, res) => {
-        res.send(videosToSend).end();
+        res.send(videosToSend);
     });
 
 const port = process.env.PORT || 80;
