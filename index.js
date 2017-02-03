@@ -39,19 +39,22 @@ const app = express()
     .get('/', (req, res) => {
         const html = indexHTML
             .replace(/{{title}}/g, 'Ben Swann Video Archive')
-            .replace(/{{url}}/, `${req.protocol}://${req.get('host')}`)
+            .replace(/{{url}}/, `https://${req.get('host')}`)
             .replace(/{{description}}/, 'This is an UNOFFICIAL Ben Swann Video Archive.')
-            .replace(/{{image}}/, `${req.protocol}://${req.headers.host}/${metaImage}`);
+            .replace(/{{image}}/, `https://${req.headers.host}/${metaImage}`);
         res.send(html);
     })
     .get('/video/:id', (req, res) => {
         let video = videos.find(v => v.id === req.params.id);
-        video = video ? video : {};
+        if (!video) {
+            res.sendStatus(400);
+            return;
+        }
         const html = indexHTML
             .replace(/{{title}}/g, `${entities.encode(video.title || '')} - Ben Swann Video Archive`)
-            .replace(/{{url}}/, `${req.protocol}://${req.get('host')}`)
+            .replace(/{{url}}/, `https://${req.get('host')}/video/${video.id}`)
             .replace(/{{description}}/, entities.encode(video.description || ''))
-            .replace(/{{image}}/, `${req.protocol}://${req.headers.host}/${metaImage}`);
+            .replace(/{{image}}/, `https://${req.headers.host}/${metaImage}`);
         res.send(html);
     })
     .get('/api/videos', (req, res) => {
