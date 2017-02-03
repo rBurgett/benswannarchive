@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
-const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const Entities = require('html-entities').XmlEntities;
@@ -34,7 +33,6 @@ const metaImage = 'images/ben_swann.jpg';
 const app = express()
     .use(bodyParser.urlencoded({ extended: false }))
     .use(bodyParser.json())
-    .use(cors())
     .use(favicon('./public/favicon.ico'))
     .use(express.static('./public'))
     .use(express.static('./dist'))
